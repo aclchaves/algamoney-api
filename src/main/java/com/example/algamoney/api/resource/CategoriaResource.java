@@ -58,10 +58,19 @@ public class CategoriaResource {
 	public ResponseEntity<Categoria> buscarPeloCodigo( @PathVariable Long codigoId) {
 		Optional<Categoria> categoria = categoriaRepository.findById(codigoId);
 		
-		if(categoria.isPresent()) {
-			return ResponseEntity.ok(categoria.get());
-		}
-		return ResponseEntity.notFound().build();
+//		desenvolvido na implementação 3.6
+//		if(categoria.isPresent()) {
+//			return ResponseEntity.ok(categoria.get());
+//		}
+//		return ResponseEntity.notFound().build();
+		
+//		implementação com o map
+//		return this.categoriaRepository.findById(codigoId)
+//				.map(categoria -> ResponseEntity.ok(categoria))
+//				.orElse(ResponseEntity.notFound().build());
+		
+		return categoria.isPresent() ? 
+				ResponseEntity.ok(categoria.get()) : ResponseEntity.notFound().build();
 		
 	}
 }
