@@ -46,8 +46,7 @@ public class AlgaMoneyExceptionHandle  extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler({EmptyResultDataAccessException.class})	
 	public ResponseEntity<Object> handleEmptyResultDataAccessException(
-			EmptyResultDataAccessException ex, WebRequest request) {
-		
+			EmptyResultDataAccessException ex, WebRequest request) {		
 		
 		String mensagemUsuario = messageSource.getMessage("recurso.nao-encontrado", null, LocaleContextHolder.getLocale());
 		String mensagemDesenvolvedor = ex.toString();
@@ -82,8 +81,7 @@ public class AlgaMoneyExceptionHandle  extends ResponseEntityExceptionHandler{
 
 		public String getMensagemDesenvolvedor() {
 			return mensagemDesenvolvedor;
-		}
-		
+		}	
 		
 	}
 }
